@@ -1,0 +1,13 @@
+!
+hostname {{ router_hostname }}
+!
+interface Loopback0
+ description Management Loopback
+ ip address {{ loopback_ip }} 255.255.255.255
+!
+interface GigabitEthernet0/1
+ description Uplink to Core Switch
+ ip address {{ int_g0_1_ip }} 255.255.255.0
+ no shutdown
+!
+end

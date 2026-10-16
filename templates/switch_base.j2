@@ -1,0 +1,11 @@
+!
+hostname {{ switch_hostname }}
+!
+vlan {{ mgmt_vlan }}
+ name MANAGEMENT
+!
+interface Vlan{{ mgmt_vlan }}
+ ip address {{ mgmt_ip }} 255.255.255.0
+ no shutdown
+!
+end

@@ -1,0 +1,27 @@
+---
+- name: Generate Router Configurations
+  hosts: routers
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Pastikan folder output tersedia
+      file:
+        path: "{{ playbook_dir }}/../output"
+        state: directory
+
+    - name: Render Jinja2 Template ke file konfigurasi Router
+      template:
+        src: "{{ playbook_dir }}/../templates/router_base.j2"
+        dest: "{{ playbook_dir }}/../output/{{ inventory_hostname }}.cfg"
+
+- name: Generate Switch Configurations
+  hosts: switches
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Render Jinja2 Template ke file konfigurasi Switch
+      template:
+        src: "{{ playbook_dir }}/../templates/switch_base.j2"
+        dest: "{{ playbook_dir }}/../output/{{ inventory_hostname }}.cfg"

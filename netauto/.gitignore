@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Ansible
+*.retry
+.vault_pass
+*.vault
+
+# Rahasia dan kredensial (jangan pernah di-commit)
+.env
+secrets/
+*.pem
+*.key
+
+# Berkas besar dan image lab (lisensi vendor, ukuran besar)
+lab/images/
+*.qcow2
+*.vmdk
+*.iso
+*.pcap
+*.pcapng
+
+# Hasil backup konfigurasi perangkat yang bersifat lokal
+automation/backups/
+
+# Editor dan OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
